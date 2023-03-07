@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Text;
+using System.Text.Json;
 
 namespace Confluent.Kafka.Extensions.Diagnostics;
 
@@ -22,10 +23,7 @@ internal static class ActivityDiagnosticsHelper
             if (activity == null)
                 return null;
 
-            if (activity.IsAllDataRequested)
-            {
-                SetActivityTags(activity, message);
-            }
+            SetActivityTags(activity, message);
 
             if (message.Headers == null)
             {
@@ -76,11 +74,7 @@ internal static class ActivityDiagnosticsHelper
                     activity.TraceStateString = activityContext.TraceState;
                 }
 
-                if (activity.IsAllDataRequested)
-                {
-                    SetActivityTags(activity, message);
-                }
-
+                SetActivityTags(activity, message);
                 activity.Start();
             }
 
@@ -99,6 +93,18 @@ internal static class ActivityDiagnosticsHelper
         if (message.Key != null)
         {
             activity.SetTag("messaging.kafka.message_key", message.Key.ToString());
+        }
+
+        if (message.Value != null)
+        {
+            activity.SetTag("messaging.payload", message.Value.ToString());
+        }
+
+        var headers = message.Headers;
+        if (headers != null)
+        {
+            var headersDict = headers.ToDictionary(x => x.Key, x => System.Text.Encoding.Default.GetString(x.GetValueBytes()));
+            activity.SetTag("messaging.kafka.headers", JsonSerializer.Serialize(headersDict));
         }
     }
 
