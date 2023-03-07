@@ -1,6 +1,6 @@
 using OpenTelemetry.Trace;
 
-namespace Confluent.Kafka.Extensions.OpenTelemetry;
+namespace Confluent.Kafka.Extensions.Diagnostics;
 
 /// <summary>
 ///     Extension methods for <see cref="TracerProviderBuilder" />.
