@@ -1,3 +1,5 @@
+using Confluent.Kafka;
+
 namespace HeliosOpenTelemetry.Kafka.Confluent;
 
 /// <summary>
