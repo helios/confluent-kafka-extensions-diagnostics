@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <PackageId>Helios.OpenTelemetry.Kafka.Confluent</PackageId>
+        <PackageId>HeliosOpenTelemetry.Kafka.Confluent</PackageId>
         <Version>0.1.0</Version>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
