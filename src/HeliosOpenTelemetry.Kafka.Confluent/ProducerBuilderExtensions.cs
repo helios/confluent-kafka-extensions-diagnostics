@@ -1,4 +1,6 @@
-namespace Confluent.Kafka.Extensions.Diagnostics;
+using Confluent.Kafka;
+
+namespace HeliosOpenTelemetry.Kafka.Confluent;
 
 /// <summary>
 ///     Extension methods for <see cref="ProducerBuilder{TKey,TValue}" />.

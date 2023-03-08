@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confluent.Kafka.Extensions.Diagnostics", "src\Confluent.Kafka.Extensions.Diagnostics\Confluent.Kafka.Extensions.Diagnostics.csproj", "{6B0AFF93-45AF-4A3A-BF4E-8D916AA1592B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeliosOpenTelemetry.Kafka.Confluent", "src\HeliosOpenTelemetry.Kafka.Confluent\HeliosOpenTelemetry.Kafka.Confluent.csproj", "{6B0AFF93-45AF-4A3A-BF4E-8D916AA1592B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

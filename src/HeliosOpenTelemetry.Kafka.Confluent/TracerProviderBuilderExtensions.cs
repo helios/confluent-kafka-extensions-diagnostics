@@ -1,6 +1,6 @@
 using OpenTelemetry.Trace;
 
-namespace Confluent.Kafka.Extensions.Diagnostics;
+namespace HeliosOpenTelemetry.Kafka.Confluent;
 
 /// <summary>
 ///     Extension methods for <see cref="TracerProviderBuilder" />.
@@ -14,7 +14,7 @@ public static class TracerProviderBuilderExtensions
     {
         if (builder == null) throw new ArgumentNullException(nameof(builder));
 
-        builder.AddSource("Confluent.Kafka.Extensions.Diagnostics");
+        builder.AddSource("HeliosOpenTelemetry.Kafka.Confluent");
 
         return builder;
     }
