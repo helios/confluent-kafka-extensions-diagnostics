@@ -1,4 +1,4 @@
-namespace Confluent.Kafka.Extensions.Diagnostics;
+namespace HeliosOpenTelemetry.Kafka.Confluent;
 
 internal class InstrumentedProducer<TKey, TValue> : IProducer<TKey, TValue>
 {

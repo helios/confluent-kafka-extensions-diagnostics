@@ -1,15 +1,15 @@
-# Confluent.Kafka.Extensions.Diagnostics
+# HeliosOpenTelemetry.Kafka.Confluent
 
-![GitHub Actions Badge](https://github.com/vhatsura/confluent-kafka-extensions-diagnostics/actions/workflows/continuous.integration.yml/badge.svg)
-[![NuGet Badge](https://buildstats.info/nuget/Confluent.Kafka.Extensions.Diagnostics)](https://www.nuget.org/packages/Confluent.Kafka.Extensions.Diagnostics/)
+![GitHub Actions Badge](https://github.com/helios/confluent-kafka-extensions-diagnostics/actions/workflows/continuous.integration.yml/badge.svg)
+[![NuGet Badge](https://buildstats.info/nuget/HeliosOpenTelemetry.Kafka.Confluent)](https://www.nuget.org/packages/HeliosOpenTelemetry.Kafka.Confluent/)
 
-The `Confluent.Kafka.Extensions.Diagnostics` package enables instrumentation of the `Confluent.Kafka` library
+The `HeliosOpenTelemetry.Kafka.Confluent` package enables instrumentation of the `Confluent.Kafka` library
 via [Activity API](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs).
 
 ## Installation
 
 ```powershell
-Install-Package Confluent.Kafka.Extensions.Diagnostics
+Install-Package HeliosOpenTelemetry.Kafka.Confluent
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ After that, all produce calls (sync and async) will be instrumented.
 
 ```csharp
 using Confluent.Kafka;
-using Confluent.Kafka.Extensions.Diagnostics;
+using HeliosOpenTelemetry.Kafka.Confluent;
 
 
 using var producer =
@@ -42,7 +42,7 @@ via an extension method on the consumer itself. For this reason, the consumer us
 
 ```csharp
 using Confluent.Kafka;
-using Confluent.Kafka.Extensions.Diagnostics;
+using HeliosOpenTelemetry.Kafka.Confluent;
 
 using var consumer = new ConsumerBuilder<Ignore, string>(
         new ConsumerConfig(new ClientConfig { BootstrapServers = "localhost:9092" })

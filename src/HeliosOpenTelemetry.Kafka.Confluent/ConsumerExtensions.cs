@@ -1,4 +1,4 @@
-namespace Confluent.Kafka.Extensions.Diagnostics;
+namespace HeliosOpenTelemetry.Kafka.Confluent;
 
 /// <summary>
 ///     Extension methods for <see cref="IConsumer{TKey,TValue}" />.

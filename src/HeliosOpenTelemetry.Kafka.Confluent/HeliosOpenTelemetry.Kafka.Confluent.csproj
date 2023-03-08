@@ -2,6 +2,7 @@
 
     <PropertyGroup>
         <PackageId>Helios.OpenTelemetry.Kafka.Confluent</PackageId>
+        <Version>0.1.0</Version>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <TargetFramework>net6.0</TargetFramework>
@@ -16,8 +17,8 @@
         <AnalysisMode>All</AnalysisMode>
         <AnalysisLevel>latest</AnalysisLevel>
 
-        <Authors>Vadim Hatsura</Authors>
-        <Description>Confluent.Kafka instrumentationusing the [System.Diagnostics.Activity](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.activity) API</Description>
+        <Authors>Helios</Authors>
+        <Description>Confluent.Kafka instrumentation using the [System.Diagnostics.Activity](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.activity) API</Description>
         <PackageTags>kafka, confluent, diagnostics</PackageTags>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <Copyright>Copyright (c) 2022 - Present</Copyright>

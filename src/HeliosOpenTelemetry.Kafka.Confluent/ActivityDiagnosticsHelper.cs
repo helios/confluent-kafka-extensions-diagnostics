@@ -2,11 +2,11 @@ using System.Diagnostics;
 using System.Text;
 using System.Text.Json;
 
-namespace Confluent.Kafka.Extensions.Diagnostics;
+namespace HeliosOpenTelemetry.Kafka.Confluent;
 
 internal static class ActivityDiagnosticsHelper
 {
-    private const string ActivitySourceName = "Confluent.Kafka.Extensions.Diagnostics";
+    private const string ActivitySourceName = "HeliosOpenTelemetry.Kafka.Confluent";
     private const string TraceParentHeaderName = "traceparent";
     private const string TraceStateHeaderName = "tracestate";
 
