@@ -14,7 +14,7 @@ internal static class ActivityDiagnosticsHelper
     private static ActivitySource ActivitySource { get; } = new(ActivitySourceName);
 
     internal static Activity? StartProduceActivity<TKey, TValue>(TopicPartition partition,
-        Message<TKey, TValue> message)
+        Message<TKey, TValue> message, bool metadataOnly)
     {
         try
         {
@@ -24,7 +24,7 @@ internal static class ActivityDiagnosticsHelper
             if (activity == null)
                 return null;
 
-            SetActivityTags(activity, message);
+            SetActivityTags(activity, message, metadataOnly);
 
             if (message.Headers == null)
             {
@@ -50,7 +50,7 @@ internal static class ActivityDiagnosticsHelper
     }
 
     internal static Activity? StartConsumeActivity<TKey, TValue>(TopicPartition partition,
-        Message<TKey, TValue> message)
+        Message<TKey, TValue> message, bool metadataOnly)
     {
         try
         {
@@ -75,7 +75,7 @@ internal static class ActivityDiagnosticsHelper
                     activity.TraceStateString = activityContext.TraceState;
                 }
 
-                SetActivityTags(activity, message);
+                SetActivityTags(activity, message, metadataOnly);
                 activity.Start();
             }
 
@@ -89,11 +89,16 @@ internal static class ActivityDiagnosticsHelper
         }
     }
 
-    private static void SetActivityTags<TKey, TValue>(Activity activity, Message<TKey, TValue> message)
+    private static void SetActivityTags<TKey, TValue>(Activity activity, Message<TKey, TValue> message, bool metadataOnly)
     {
         if (message.Key != null)
         {
             activity.SetTag("messaging.kafka.message_key", message.Key.ToString());
+        }
+
+        if (metadataOnly || (Environment.GetEnvironmentVariable("HS_METADATA_ONLY")?.Equals("true") ?? false))
+        {
+            return;
         }
 
         if (message.Value != null)

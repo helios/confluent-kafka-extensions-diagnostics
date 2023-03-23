@@ -11,10 +11,10 @@ public static class ProducerBuilderExtensions
     ///     Builds a new instrumented instance of producer.
     /// </summary>
     public static IProducer<TKey, TValue> BuildWithInstrumentation<TKey, TValue>(
-        this ProducerBuilder<TKey, TValue> producerBuilder)
+        this ProducerBuilder<TKey, TValue> producerBuilder, bool metadataOnly = false)
     {
         if (producerBuilder == null) throw new ArgumentNullException(nameof(producerBuilder));
 
-        return new InstrumentedProducer<TKey, TValue>(producerBuilder.Build());
+        return new InstrumentedProducer<TKey, TValue>(producerBuilder.Build(), metadataOnly);
     }
 }
