@@ -5,10 +5,12 @@ namespace HeliosOpenTelemetry.Kafka.Confluent;
 internal class InstrumentedProducer<TKey, TValue> : IProducer<TKey, TValue>
 {
     private readonly IProducer<TKey, TValue> _producerImplementation;
+    private readonly bool _metadataOnly;
 
-    public InstrumentedProducer(IProducer<TKey, TValue> producer)
+    public InstrumentedProducer(IProducer<TKey, TValue> producer, bool metadataOnly = false)
     {
         _producerImplementation = producer;
+        _metadataOnly = metadataOnly;
     }
 
     public void Dispose() => _producerImplementation.Dispose();
@@ -27,7 +29,7 @@ internal class InstrumentedProducer<TKey, TValue> : IProducer<TKey, TValue>
         TopicPartition topicPartition, Message<TKey, TValue> message,
         CancellationToken cancellationToken = new CancellationToken())
     {
-        var activity = ActivityDiagnosticsHelper.StartProduceActivity(topicPartition, message);
+        var activity = ActivityDiagnosticsHelper.StartProduceActivity(topicPartition, message, this._metadataOnly);
 
         try
         {
@@ -49,7 +51,7 @@ internal class InstrumentedProducer<TKey, TValue> : IProducer<TKey, TValue>
         TopicPartition topicPartition, Message<TKey, TValue> message,
         Action<DeliveryReport<TKey, TValue>>? deliveryHandler = null)
     {
-        var activity = ActivityDiagnosticsHelper.StartProduceActivity(topicPartition, message);
+        var activity = ActivityDiagnosticsHelper.StartProduceActivity(topicPartition, message, this._metadataOnly);
 
         try
         {
