@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>HeliosOpenTelemetry.Kafka.Confluent</PackageId>
-        <Version>0.1.0</Version>
+        <Version>0.1.1</Version>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <TargetFramework>net6.0</TargetFramework>
